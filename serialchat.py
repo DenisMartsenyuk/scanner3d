@@ -18,7 +18,12 @@ class SerialChat(Thread):
             try:
                 self.serial.open()
             except:
-                pass
+                print('Connecting...')
+                sleep(0.5)
+        sleep(0.1) # timeout
+
+    def send(self, data : str):
+        self.serial.write(bytes(data + Config.SerialChat.STOP_SIGNAL, 'utf-8'))
 
     def run(self):
         while True:

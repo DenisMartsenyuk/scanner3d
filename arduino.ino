@@ -31,7 +31,7 @@ AccelStepper zStepper(1, pinZStep, pinZDir);
 
 
 void setup() {
-	Serial.begin(115200);
+	Serial.begin(serialBaudrate);
 
 	tStepper.setMaxSpeed(tMaxSpeed);
 	tStepper.setAcceleration(tAcceleration);
